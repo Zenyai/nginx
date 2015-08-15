@@ -5,11 +5,10 @@
 #
 
 # Pull base image.
-FROM dockerfile/ubuntu
+FROM ubuntu:trusty
 
 # Install Nginx.
 RUN \
-  add-apt-repository -y ppa:nginx/stable && \
   apt-get update && \
   apt-get install -y nginx && \
   rm -rf /var/lib/apt/lists/* && \
@@ -24,6 +23,9 @@ WORKDIR /etc/nginx
 
 # Define default command.
 CMD ["nginx"]
+
+# Add nginx Settings
+ADD default /etc/nginx/sites-available/default
 
 # Expose ports.
 EXPOSE 80
