@@ -26,6 +26,7 @@ CMD ["nginx"]
 
 # Add nginx Settings
 ADD default /etc/nginx/sites-available/default
+ADD nginx.conf /etc/nginx/nginx.conf
 
 # Expose ports.
 EXPOSE 80
